@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
+import api from "../../services/api";
 
 import Header from "../../components/Header";
-import api from "../../services/api";
 import Food from "../../components/Food";
 import ModalAddFood from "../../components/ModalAddFood";
 import ModalEditFood from "../../components/ModalEditFood";
@@ -12,8 +12,6 @@ const Dashboard = (props) => {
   const [editingFood, setEditingFood] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
-
-  console.log({ editingFood });
 
   const getFoods = async () => {
     const response = await api.get("/foods");

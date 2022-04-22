@@ -1,8 +1,8 @@
-import { Component, useState } from "react";
-import { FiEdit3, FiTrash } from "react-icons/fi";
-
-import { Container } from "./styles";
+import { useState } from "react";
 import api from "../../services/api";
+
+import { FiEdit3, FiTrash } from "react-icons/fi";
+import { Container } from "./styles";
 
 const Food = ({ food, handleDelete, handleEditFood }) => {
   const { available } = food;
