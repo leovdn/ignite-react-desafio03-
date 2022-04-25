@@ -22,6 +22,7 @@ const Modal = ({ isOpen, setIsOpen, children }: ModalProps) => {
       onRequestClose={setIsOpen}
       isOpen={isOpen}
       ariaHideApp={false}
+      closeTimeoutMS={200}
       style={{
         content: {
           top: "50%",
@@ -35,6 +36,7 @@ const Modal = ({ isOpen, setIsOpen, children }: ModalProps) => {
           borderRadius: "8px",
           width: "736px",
           border: "none",
+          transition: "all ease-in-out 200ms",
         },
         overlay: {
           backgroundColor: "#121214e6",
