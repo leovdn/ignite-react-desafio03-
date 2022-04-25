@@ -5,11 +5,11 @@ import { Form } from "./styles";
 import Modal, { ModalProps } from "../Modal";
 import Input from "../Input";
 import { FormHandles } from "@unform/core";
-import { FoodProps } from "components/Food";
+import { EditingFoodProps, FoodProps } from "pages/Dashboard";
 
 interface ModalEditFoodProps extends ModalProps {
   handleUpdateFood: (food: FoodProps) => void;
-  editingFood: FoodProps;
+  editingFood: EditingFoodProps;
 }
 
 const ModalEditFood = ({

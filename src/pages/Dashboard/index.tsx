@@ -7,9 +7,27 @@ import ModalAddFood from "../../components/ModalAddFood";
 import ModalEditFood from "../../components/ModalEditFood";
 import { FoodsContainer } from "./styles";
 
-const Dashboard = (props) => {
-  const [foods, setFoods] = useState([]);
-  const [editingFood, setEditingFood] = useState({});
+export interface FoodProps {
+  id: number;
+  available: boolean;
+  name: string;
+  image: string;
+  description: string;
+  price: string;
+}
+
+export interface EditingFoodProps {
+  id?: number;
+  available?: boolean;
+  name?: string;
+  image?: string;
+  description?: string;
+  price?: string;
+}
+
+const Dashboard = () => {
+  const [foods, setFoods] = useState<FoodProps[]>([]);
+  const [editingFood, setEditingFood] = useState<EditingFoodProps>({});
   const [modalOpen, setModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
 
@@ -19,7 +37,7 @@ const Dashboard = (props) => {
     setFoods(response.data);
   };
 
-  const handleAddFood = async (food) => {
+  const handleAddFood = async (food: FoodProps) => {
     try {
       const response = await api.post("/foods", {
         ...food,
@@ -32,7 +50,7 @@ const Dashboard = (props) => {
     }
   };
 
-  const handleUpdateFood = async (food) => {
+  const handleUpdateFood = async (food: FoodProps) => {
     try {
       const foodUpdated = await api.put(`/foods/${editingFood.id}`, {
         ...editingFood,
@@ -49,7 +67,7 @@ const Dashboard = (props) => {
     }
   };
 
-  const handleDeleteFood = async (id) => {
+  const handleDeleteFood = async (id: number) => {
     await api.delete(`/foods/${id}`);
 
     const foodsFiltered = foods.filter((food) => food.id !== id);
@@ -57,15 +75,15 @@ const Dashboard = (props) => {
     setFoods(foodsFiltered);
   };
 
-  const toggleModal = () => {
+  const toggleModal = (toggle: boolean) => {
     setModalOpen((prev) => !prev);
   };
 
-  const toggleEditModal = () => {
+  const toggleEditModal = (toggle: boolean) => {
     setEditModalOpen((prev) => !prev);
   };
 
-  const handleEditFood = (food) => {
+  const handleEditFood = (food: FoodProps) => {
     setEditingFood(food);
     toggleEditModal(true);
   };

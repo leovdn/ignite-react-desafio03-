@@ -1,19 +1,11 @@
-import { ReactPropTypes, useState } from "react";
+import { useState } from "react";
 import api from "../../services/api";
 
 import { FiEdit3, FiTrash } from "react-icons/fi";
 import { Container } from "./styles";
+import { FoodProps } from "pages/Dashboard";
 
-export interface FoodProps {
-  id: number;
-  available: boolean;
-  name: string;
-  image: string;
-  description: string;
-  price: string;
-}
-
-interface FoodInterface extends ReactPropTypes {
+interface FoodInterface {
   food: FoodProps;
   handleDelete(foodId: number): void;
   handleEditFood(food: FoodProps): void;

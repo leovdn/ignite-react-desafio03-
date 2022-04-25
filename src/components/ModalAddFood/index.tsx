@@ -4,9 +4,8 @@ import { FiCheckSquare } from "react-icons/fi";
 import { Form } from "./styles";
 import Modal, { ModalProps } from "../Modal";
 import Input from "../Input";
-import { FoodProps } from "components/Food";
 import { FormHandles } from "@unform/core";
-
+import { FoodProps } from "pages/Dashboard";
 interface ModalAddFoodProps extends ModalProps {
   handleAddFood: (food: FoodProps) => void;
 }
