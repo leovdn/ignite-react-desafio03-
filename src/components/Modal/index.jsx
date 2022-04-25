@@ -3,6 +3,7 @@ import ReactModal from "react-modal";
 
 const Modal = ({ isOpen, setIsOpen, children }) => {
   useEffect(() => {
+    // eslint-disable-next-line
     if (isOpen !== isOpen) {
       setIsOpen(isOpen);
     }
