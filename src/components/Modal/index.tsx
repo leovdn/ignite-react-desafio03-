@@ -1,7 +1,14 @@
+import { ReactElement } from "react";
 import { useEffect } from "react";
 import ReactModal from "react-modal";
 
-const Modal = ({ isOpen, setIsOpen, children }) => {
+export interface ModalProps {
+  isOpen: any;
+  setIsOpen: (isOpen?: any) => void;
+  children?: ReactElement;
+}
+
+const Modal = ({ isOpen, setIsOpen, children }: ModalProps) => {
   useEffect(() => {
     // eslint-disable-next-line
     if (isOpen !== isOpen) {
